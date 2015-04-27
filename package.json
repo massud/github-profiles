@@ -1,0 +1,26 @@
+{
+  "name": "github-profiles",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/massud/github-profiles.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/massud/github-profiles/issues"
+  },
+  "homepage": "https://github.com/massud/github-profiles",
+  "dependencies": {
+    "hapi": "^8.4.0"
+  },
+  "devDependencies": {
+    "bower": "^1.4.1",
+    "jasmine-node": "^1.14.5"
+  }
+}
