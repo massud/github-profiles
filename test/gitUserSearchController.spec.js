@@ -14,15 +14,6 @@ describe('GitUserSearchController', function(){
 
   describe('when searching for a user', function() {
 
-  var httpBackend;
-    beforeEach(inject(function($httpBackend) {
-    httpBackend = $httpBackend
-    httpBackend
-    .when("GET", "https://api.github.com/search/users?access_token=e9b38bf99ad210df4c0efd1d3d2f56ee7bc0deae=hello")
-    .respond(
-    { items: items }
-    );
-}));
 
     var items = [
       {
@@ -36,6 +27,16 @@ describe('GitUserSearchController', function(){
         "html_url": "https://github.com/stephenlloyd"
       }
     ];
+
+  var httpBackend;
+    beforeEach(inject(function($httpBackend) {
+    httpBackend = $httpBackend
+    httpBackend
+    .when("GET", "https://api.github.com/search/users?q=hello")
+    .respond(
+    { items: items }
+    );
+}));
 
   it('displays search results', function() {
     ctrl.searchTerm = 'hello';
