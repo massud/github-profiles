@@ -28,15 +28,19 @@ describe('GitUserSearchController', function(){
       }
     ];
 
-  var httpBackend;
-    beforeEach(inject(function($httpBackend) {
-    httpBackend = $httpBackend
-    httpBackend
-    .when("GET", "https://api.github.com/search/users?q=hello")
-    .respond(
-    { items: items }
-    );
-}));
+  beforeEach(inject(function($httpBackend) {
+      httpBackend = $httpBackend
+      httpBackend
+        .expectGET("https://api.github.com/search/users?access_token=ba222457dafeddc09d20b7d518c232ac61623af5&q=hello")
+        .respond(
+          { items: items }
+        );
+  }));
+
+  afterEach(function() {
+    httpBackend.verifyNoOutstandingExpectation();
+    httpBackend.verifyNoOutstandingRequest();
+   });
 
   it('displays search results', function() {
     ctrl.searchTerm = 'hello';

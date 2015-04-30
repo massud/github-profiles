@@ -2,24 +2,18 @@ githubUserSearch.controller('GitUserSearchController', ['$resource', function($r
 
   var self = this;
 
-  var accessToken = 'e9b38bf99ad210df4c0efd1d3d2f56ee7bc0deae'
+  var token = 'ba222457dafeddc09d20b7d518c232ac61623af5';
   
   var searchResource = $resource('https://api.github.com/search/users');
 
 
   
     self.doSearch = function (){
-      if (self.searchTerm != '') {
-        self.searchResult = searchResource.get (
-      {       
-    q: self.searchTerm,
-    access_token: self.accessToken
-          
-    }
-    );
-  } else {
-    self.searchResult = null 
-  }
+      self.searchResult = searchResource.get(
+        { q: self.searchTerm,
+          access_token: token
+      }
+      );
 
-};
+    };
 }]);
