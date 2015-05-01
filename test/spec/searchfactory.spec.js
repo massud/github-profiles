@@ -24,7 +24,7 @@ describe('factory: Search', function() {
   beforeEach(inject(function($httpBackend) {
     httpBackend = $httpBackend;
     httpBackend
-      .when("https://api.github.com/search/users?q=hello")
+      .when("https://api.github.com/search/users?access_token=ba222457dafeddc09d20b7d518c232ac61623af5q=hello")
       .respond(
         { items: items }
       );
